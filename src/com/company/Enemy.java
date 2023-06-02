@@ -6,10 +6,10 @@ public class Enemy
     public int hp;
     public int damage;
 
-    public Enemy() {
-        this.name = getName();
-        this.hp = getHp();
-        this.hp = getDamage();
+    public Enemy(String name, int hp, int damage) {
+        this.name = name;
+        this.hp = hp;
+        this.damage = damage;
     }
 
     public String getName() {
@@ -18,6 +18,13 @@ public class Enemy
 
     public int getHp() {
         return hp;
+    }
+
+    public void reduceHp(int damage) {
+        hp = getHp() - damage;
+        if (hp == 0) {
+            System.out.println(getName() + " has fallen in battle!");
+        }
     }
 
     public int getDamage() {
